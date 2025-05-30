@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "e7c7fc83-d3fd-42ff-83f6-fde58a6e0a2b",
+		"name": "KOA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38149068",
+		"_collection_link": "https://api-project-nestjs.postman.co/workspace/project-social-space~36c79ac2-b080-4129-ae29-b76abe68673e/collection/38149068-e7c7fc83-d3fd-42ff-83f6-fde58a6e0a2b?action=share&source=collection_link&creator=38149068"
+	},
+	"item": [
+		{
+			"name": "Get books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/books/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"books",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get book by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/books/101",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"books",
+						"101"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n  \"id\": 156,\r\n  \"author\": \"John Do dsade\",\r\n  \"name\":\"tuanthanh\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/books/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"books",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all product",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n  \"id\": 156,\r\n  \"author\": \"John Do dsade\",\r\n  \"name\":\"tuanthanh\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/products/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 5,\r\n    \"name\": \"Product ABC\",\r\n    \"price\": 10,\r\n    \"description\": \"Description here\",\r\n    \"product\": \"Product type here\",\r\n    \"color\": \"Color here\",\r\n    \"createdAt\": \"Date here\",\r\n    \"image\": \"Image URL\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/products/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get product by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 5,\r\n    \"name\": \"Product ABC\",\r\n    \"price\": 10,\r\n    \"description\": \"Description here\",\r\n    \"product\": \"Product type here\",\r\n    \"color\": \"Color here\",\r\n    \"createdAt\": \"Date here\",\r\n    \"image\": \"Image URL\"\r\n  }"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Product xyz\",\r\n    \"price\": 10,\r\n    \"description\": \"Description here\",\r\n    \"product\": \"Product type here\",\r\n    \"color\": \"Color here\",\r\n    \"createdAt\": \"Date here\",\r\n    \"image\": \"Image URL\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Product xyz\",\r\n    \"price\": 10,\r\n    \"description\": \"Description here\",\r\n    \"product\": \"Product type here\",\r\n    \"color\": \"Color here\",\r\n    \"createdAt\": \"Date here\",\r\n    \"image\": \"Image URL\"\r\n  }"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/products/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get filter product",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Product xyz\",\r\n    \"price\": 10,\r\n    \"description\": \"Description here\",\r\n    \"product\": \"Product type here\",\r\n    \"color\": \"Color here\",\r\n    \"createdAt\": \"Date here\",\r\n    \"image\": \"Image URL\"\r\n  }"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/products/?limit=2&sort=desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products",
+						""
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "sort",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
