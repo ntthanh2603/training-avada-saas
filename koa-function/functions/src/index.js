@@ -1,4 +1,4 @@
-import { onRequest } from "firebase-functions/v2/https";
-import api from "./routes/api.js";
+import functions from "firebase-functions";
+import api from "./handlers/api.js";
 
-export const helloWorld = onRequest(api.callback());
+export const helloWorld = functions.https.onRequest(api.callback());
