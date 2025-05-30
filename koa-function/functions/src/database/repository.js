@@ -1,5 +1,5 @@
 import admin from "firebase-admin";
-import serverAccount from "../../../serviceAccount.json" assert { type: "json" };
+import serverAccount from "../../../../../serviceAccount.json" assert { type: "json" };
 
 const app = admin.initializeApp({
   credential: admin.credential.cert(serverAccount),
