@@ -1,16 +1,5 @@
-import {
-  TopBar,
-  ActionList,
-  Icon,
-  Frame,
-  Box,
-  ButtonGroup,
-} from "@shopify/polaris";
-import {
-  ArrowLeftIcon,
-  NotificationIcon,
-  SidekickIcon,
-} from "@shopify/polaris-icons";
+import { TopBar, ActionList, Icon, Frame, ButtonGroup } from "@shopify/polaris";
+import { ArrowLeftIcon, NotificationIcon } from "@shopify/polaris-icons";
 import { useState, useCallback } from "react";
 import Todo from "./Todo";
 

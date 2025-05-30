@@ -1,2 +1,2 @@
 **/node_modules/
-/koa-function/serviceAccount.json
+koa-function\functions\src\database\serviceAccount.json

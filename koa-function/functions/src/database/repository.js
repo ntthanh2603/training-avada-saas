@@ -1,5 +1,5 @@
 import admin from "firebase-admin";
-import serverAccount from "../../../../../serviceAccount.json" assert { type: "json" };
+import serverAccount from "./serviceAccount.json" assert { type: "json" };
 
 const app = admin.initializeApp({
   credential: admin.credential.cert(serverAccount),
@@ -7,43 +7,61 @@ const app = admin.initializeApp({
 
 const db = admin.firestore(app).collection("todo");
 
-const addTodo = async (todo) => {
-  const docRef = db.doc(todo.id);
-  await docRef.set(todo);
-  return { id: docRef.id, ...todo };
-};
+const add = async (data) => {
+  const docRef = db.doc();
 
-const getTodos = async () => {
+  const documentData = {
+    id: data.id || "",
+    title: data.title || "",
+    isComplete: Boolean(data.isComplete),
+  };
+
+  await docRef.set(documentData);
+  return data;
+};
+const getAll = async () => {
   const snapshot = await db.get();
+
   return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 };
 
-const getTodo = async (id) => {
-  const docRef = db.doc(id);
-  const doc = await docRef.get();
-  if (!doc.exists) {
-    throw new Error("Todo not found");
+const remove = async (id) => {
+  console.log("Removing document with id:", id);
+  const querySnapshot = await db.where("id", "==", id).limit(1).get();
+
+  if (querySnapshot.empty) {
+    throw new Error(`Document with id ${id} not found`);
   }
-  return { id: doc.id, ...doc.data() };
+
+  const docToDelete = querySnapshot.docs[0];
+  await docToDelete.ref.delete();
+
+  return `Document with id ${id} deleted successfully`;
+};
+const update = async (id, data) => {
+  const querySnapshot = await db.where("id", "==", id).limit(1).get();
+
+  if (querySnapshot.empty) {
+    throw new Error(`Document with id ${id} not found`);
+  }
+
+  const docToUpdate = querySnapshot.docs[0];
+  const currentData = docToUpdate.data();
+
+  const updateData = {
+    ...currentData,
+    title: data.title ?? currentData.title,
+    isComplete: data.isComplete ?? currentData.isComplete,
+    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+  };
+
+  await docToUpdate.ref.update(updateData);
+
+  const { updatedAt, ...returnData } = updateData;
+  return {
+    id: docToUpdate.id,
+    ...returnData,
+  };
 };
 
-const updateTodo = async (id, todo) => {
-  const docRef = db.doc(id);
-  const doc = await docRef.get();
-  if (!doc.exists) {
-    throw new Error("Todo not found");
-  }
-  await docRef.update(todo);
-  return { id: doc.id, ...todo };
-};
-const deleteTodo = async (id) => {
-  const docRef = db.doc(id);
-  const doc = await docRef.get();
-  if (!doc.exists) {
-    throw new Error("Todo not found");
-  }
-  await docRef.delete();
-  return { id: doc.id, ...doc.data() };
-};
-
-export { addTodo, getTodos, getTodo, updateTodo, deleteTodo };
+export { add, getAll, update, remove };

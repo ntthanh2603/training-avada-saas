@@ -1,10 +1,13 @@
 import Router from "koa-router";
-import hello from "../handlers/hello.js";
+import { getTodos, addTodo, deleteTodo, updateTodo } from "../handlers/todo.js";
 
 const router = new Router({
   prefix: "/api",
 });
 
-router.get("/hello", hello);
+router.get("/", getTodos);
+router.post("/", addTodo);
+router.put("/:id", updateTodo);
+router.delete("/:id", deleteTodo);
 
 export default router;

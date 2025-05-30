@@ -1,7 +1,6 @@
-import { Box } from "@shopify/polaris";
 import "./App.css";
 
-import TopBarApp from "./component/TopBar";
+import TopBarApp from "./TopBar";
 
 function App() {
   return (
