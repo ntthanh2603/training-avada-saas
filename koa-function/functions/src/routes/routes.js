@@ -5,6 +5,6 @@ const router = new Router({
   prefix: "/api",
 });
 
-router.get("/", hello);
+router.get("/hello", hello);
 
 export default router;
